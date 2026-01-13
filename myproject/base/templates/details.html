@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<center>
+        <div class="mainpro">
+        
+        <div class="pro">
+         
+        <div class="pro1">
+        <img src="{{data.pimages.url}}" alt="" class="imgg" > 
+        </div>
+        <div class="pro2">
+        {{data.pname}} <br> Rs.{{data.price}} <br>  {{data.pcategory}} <br> {{data.pdesc}} 
+       
+        
+        </div>
+        </div>
+        
+        </div>
+        
+    
+    
+</center>
+{% endblock %}

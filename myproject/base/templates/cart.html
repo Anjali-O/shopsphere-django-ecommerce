@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>cartpage</h1>
+<center>
+<table border="2px">
+    <tr>
+        <th>sr no</th>
+        <th>product name</th>
+        <th>category</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th>Total price</th>
+        <th>remove</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.pname}}</td>
+        <td>{{i.pcategory}}</td>
+        <td>{{i.price}}</td>
+        <td><a href="{% url 'csub' i.id %}">-</a>{{i.quantity}} <a href="{% url 'cadd' i.id %}">+</a></td>
+        <td>{{i.totalprice}}</td>
+        <td><a href="{% url 'remove' i.id %}">Remove</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<h1>totalprice: {{TA}}</h1>
+<button class="pay"><a href="{% url 'payment' %}">Pay</a></button>
+</center>
+{% endblock %}

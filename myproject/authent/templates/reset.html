@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+<h2>welcome to the reset page</h2>
+{% if wrong %}
+         <h1 style="color: red;">entered old password is wrong</h1>
+{% endif %}
+
+{% if same %}
+         <h1 style="color: red;">entered new password is same as that of old password</h1>
+{% endif %}
+<div class="login">
+<form action="" method="POST">
+    
+    {% csrf_token %}
+    <label for="">username:&nbsp;&nbsp;</label>
+    <input type="text" value="{{request.user}}" readonly><br><br>
+    {% if newpass %}
+    <label for="">Enter your new password:</label>
+    <input type="text" name="newpass"><br>
+    {% else %}
+    <label for="">Enter your old password:</label>
+    <input type="text" name="oldpass"><br><br>
+    {% endif %}
+    
+    <button>submit</button>
+
+</form>
+
+</div>
+
+</center>
+
+{% endblock %}

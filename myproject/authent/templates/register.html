@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% block content %}
+<h2>register page</h2>
+<center>
+    {% if status %}
+    <h2 style="color: red;">{{status}}</h2>
+    {% endif %}
+    <div class="register">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">first Name:</label>
+        <input type="text" name="first_name"> <br><br>
+         <label for="">last Name:</label>
+        <input type="text" name="last_name"> <br><br>
+         <label for="">email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="email" name="email"> <br><br>
+         <label for="">username:</label>
+        <input type="text" name="username"> <br><br>
+         <label for="">password:</label>
+        <input type="password" name="password"> <br><br>
+        <button type="submit">submit</button>
+
+    </form>
+
+    </div>
+    
+</center>
+{% endblock %}

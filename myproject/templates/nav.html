@@ -1,0 +1,67 @@
+<nav>
+    <div class="logo">
+        <h1 class="h11">ShopSphere</h1>
+    </div>
+    <div class="links">
+        {% if request.user.is_authenticated %}
+           {% if profile_nav %}
+                <a class="as" href="{% url 'home' %}">HOME</a>
+                <a class="as" href="{% url 'cart' %}">CART({{cartproducts_count}})</a>
+                <a class="as" href="{% url 'profile' %}">PROFILE({{request.user}})</a>
+                <a class="as" href="{% url 'support' %}">SUPPORT</a>
+                <a class="as" href="{% url 'knowus' %}">KNOWUS</a>
+           {% else %}
+
+
+                <form action="">
+                    <input type="text" name="q" placeholder="Search">
+                    <input type="submit" value="Search">
+                </form>
+
+                <form action="">
+                 <input type="submit" value="trending" name="trending" class="trendy">
+                </form>
+
+                <form action="">
+                 <input type="submit" value="offer" name="offer" class="offery">
+                </form>
+
+                <a class="as" href="{% url 'home' %}">HOME</a>
+                <a class="as" href="{% url 'cart' %}">CART({{cartproducts_count}})</a>
+                <a class="as" href="{% url 'profile' %}">PROFILE({{request.user}})</a>
+                <a class="as" href="{% url 'support' %}">SUPPORT</a>
+                <a class="as" href="{% url 'knowus' %}">KNOWUS</a>
+                <a class="as" href="{% url 'logout_' %}">LOGOUT</a>
+            {% endif %}
+
+
+        {% else %}
+        {% if login_nav %}
+           <a class="as" href="{% url 'home' %}">HOME</a>
+           <a class="as" href="{% url 'login_' %}">LOGIN</a>
+           <a class="as" href="{% url 'support' %}">SUPPORT</a>
+           <a class="as" href="{% url 'knowus' %}">KNOWUS</a>
+        {% else %}
+
+            <form action="">
+                <input type="text" name="q" placeholder="Search">
+                <input type="submit" value="Search">
+            </form>
+
+            <form action="">
+                 <input type="submit" value="trending" name="trending" class="trendy">
+            </form>
+
+            <form action="">
+                 <input type="submit" value="offer" name="offer" class="offery">
+            </form>
+
+            <a class="as" href="{% url 'home' %}">HOME</a>
+            <a class="as" href="{% url 'login_' %}">LOGIN</a>
+            <a class="as" href="{% url 'support' %}">SUPPORT</a>
+            <a class="as" href="{% url 'knowus' %}">KNOWUS</a>
+        {% endif %}
+        
+        {% endif %}
+    </div>
+</nav>
